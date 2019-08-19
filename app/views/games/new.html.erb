@@ -1,0 +1,15 @@
+<h1>New Game</h1>
+<div class= "random-letters">
+<% @letters.each do |letter| %>
+   <p style="letter-spacing: 30px;"><%= letter %></p>
+<% end %>
+</div>
+
+<div class="form">
+  <form action="/score" method="post">
+    <input id="random_grid" name="random_grid" type="hidden" value=<%= @letters.join("") %> />
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <input type="text" name="new_word">
+    <input type="submit">
+  </form>
+</div>
